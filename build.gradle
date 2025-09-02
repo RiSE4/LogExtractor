@@ -3,17 +3,23 @@ plugins {
 }
 
 group = 'app.logextractor'
-version = '1.0-SNAPSHOT'
+version = '0.0.1'
 
-repositories {
-    mavenCentral()
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+jar {
+    manifest {
+        attributes 'Main-Class': 'applogextractor.LogExtractor'
+    }
 }
 
-test {
-    useJUnitPlatform()
-}
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//}
