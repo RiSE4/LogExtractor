@@ -6,11 +6,20 @@ import java.util.*;
 import java.util.function.Consumer;
 
 public class SplitUtil {
+    /**
+     * 現在日時をyyyyMMdd_HHmmssで取得
+     * @return 日時
+     */
     private static String getCurrentTimestamp() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         return sdf.format(new Date());
     }
 
+    /**
+     * 入力ファイルのファイル名と拡張子を取得し配列に格納
+     * @param file 入力ファイル
+     * @return
+     */
     private static String[] getBaseNameAndExtension(File file) {
         String name = file.getName();
         int dot = name.lastIndexOf('.');

@@ -9,13 +9,11 @@ import java.io.File;
 
 public class AppFrame extends JFrame {
     private final JTextField fileField = new JTextField(30);
-    private final JButton selectFileButton = new JButton("ファイルを選択");
     private final JTextField lineCountField = new JTextField("10000", 8);
     private final JButton splitByLineButton = new JButton("行で分割");
     private final JTextField keywordField = new JTextField("", 12);
     private final JTextField contextLinesField = new JTextField("10", 4);
     private final JButton extractByKeywordButton = new JButton("キーワードで抽出");
-    private final JButton resetButton = new JButton("リセット");
     private final JTextArea logArea = new JTextArea(12, 50);
     private static final int LINE_MIN = 10000;
     private static final int LINE_MAX = 2000000;
@@ -23,16 +21,18 @@ public class AppFrame extends JFrame {
     private File selectedFile;
 
     public AppFrame() {
-        setTitle("ログ分割アプリ (モダンUI - 標準Swing)");
+        setTitle("LogExtractor | ログファイルの検索と分割");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 500);
         setLocationRelativeTo(null);
+
         ToolTipManager.sharedInstance().setInitialDelay(100);
         ToolTipManager.sharedInstance().setDismissDelay(Integer.MAX_VALUE);
         JPanel panel = new JPanel();
         panel.setBackground(new Color(245, 247, 250));
         panel.setBorder(BorderFactory.createEmptyBorder(24, 24, 24, 24));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JButton selectFileButton = new JButton("ファイルを選択");
         panel.add(UIUtil.createFilePanel(fileField, selectFileButton));
         panel.add(Box.createVerticalStrut(18));
         JPanel centerPanel = new JPanel();
@@ -43,6 +43,7 @@ public class AppFrame extends JFrame {
         centerPanel.add(UIUtil.createKeywordPanel(keywordField, contextLinesField, extractByKeywordButton));
         panel.add(centerPanel);
         panel.add(Box.createVerticalStrut(6));
+        JButton resetButton = new JButton("リセット");
         panel.add(UIUtil.createResetPanel(resetButton));
         panel.add(Box.createVerticalStrut(10));
         logArea.setEditable(false);
