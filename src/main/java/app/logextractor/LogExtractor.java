@@ -6,7 +6,7 @@ public class LogExtractor {
 
     public static void main(String[] args) {
         try {
-            //WindowsのUIを取得してSwingのUIにセットする
+            //OS標準のUIスタイル取得してSwingにセット
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
             System.err.println("Windows標準のUIの適用に失敗");
