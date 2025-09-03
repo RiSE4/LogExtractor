@@ -11,12 +11,18 @@ import java.io.File;
  * アプリ全体のフレーム
  */
 public class AppFrame extends JFrame {
+    /** 読み込んだログファイル */
     private File selectedFile;
 
+    /** パネル - ファイル選択 */
     private final FilePanel filePanel;
+    /** パネル - 行数で分割 */
     private final SplitPanel splitPanel;
+    /** パネル - キーワードで抽出 */
     private final KeywordPanel keywordPanel;
+    /** パネル - リセット */
     private final ResetPanel resetPanel;
+    /** パネル - 実行ログ */
     private final LogPanel logPanel;
 
     public AppFrame() {
@@ -53,7 +59,7 @@ public class AppFrame extends JFrame {
         add(main);
     }
 
-    /** ファイル選択時 */
+    /** ファイル選択 */
     private void onFileSelected(File file) {
         this.selectedFile = file;
         logPanel.log("ファイル選択: " + file.getName());
@@ -82,6 +88,7 @@ public class AppFrame extends JFrame {
         LogicUtil.extractByKeywordWithContext(selectedFile, keyword, contextLines, logPanel::log);
     }
 
+    /** アプリ全体のリセット */
     private void reset() {
         selectedFile = null;
         filePanel.reset();

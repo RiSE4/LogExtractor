@@ -12,7 +12,7 @@ public class LogPanel {
         logArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
         logArea.setBackground(new Color(235, 238, 245));
         scrollPane = new JScrollPane(logArea);
-        scrollPane.setBorder(BorderFactory.createTitledBorder("処理ログ"));
+        scrollPane.setBorder(BorderFactory.createTitledBorder("ログ"));
     }
 
     public JScrollPane getScrollPane() {
