@@ -13,7 +13,7 @@ java {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'applogextractor.LogExtractor'
+        attributes 'Main-Class': 'app.logextractor.LogExtractor'
     }
 }
 
